@@ -1,3 +1,3 @@
-# template_typescript
+# template_serverless_aws
 
-A boilerplate project for typescript
+A boilerplate project for AWS serverless projects
