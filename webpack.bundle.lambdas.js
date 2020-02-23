@@ -8,7 +8,7 @@ const todoGetList = {
     },
     output: {
         ...baseconfig.output,
-        path: path.resolve('./build/todosGetList'),
+        path: path.resolve('./build/lambdas/todosGetList'),
     },
 };
 

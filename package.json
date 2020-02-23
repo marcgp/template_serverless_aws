@@ -14,12 +14,17 @@
         "build": "npm run lint && npm run build:clean && npm run build:bundles",
         "build:clean": "rm -rf ./build",
         "build:bundles": "npm run build:bundle:lambdas",
-        "build:bundle:lambdas": "webpack --config ./webpack.bundle.lambdas.js"
+        "build:bundle:lambdas": "webpack --config ./webpack.bundle.lambdas.js",
+        "deploy": "npm run deploy:stacks:test",
+        "deploy:stacks:test": "cdk deploy --app \"ts-node infrastructure\" --require-approval never"
     },
     "dependencies": {
         "log4js": "6.1.2"
     },
     "devDependencies": {
+        "@aws-cdk/aws-apigateway": "1.25.0",
+        "@aws-cdk/aws-lambda": "1.25.0",
+        "@aws-cdk/core": "1.25.0",
         "@babel/core": "7.8.4",
         "@babel/plugin-proposal-class-properties": "7.8.3",
         "@babel/plugin-proposal-object-rest-spread": "7.8.3",
@@ -28,6 +33,7 @@
         "@types/node": "13.7.4",
         "@types/webpack-node-externals": "1.7.1",
         "@typescript-eslint/parser": "2.20.0",
+        "aws-cdk": "1.25.0",
         "babel-loader": "8.0.6",
         "eslint": "6.8.0",
         "eslint-config-prettier": "6.10.0",
