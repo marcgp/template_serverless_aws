@@ -9,11 +9,7 @@ const todosRestApi = (scope: Construct, stackName: string, stackStage: string, e
         deployOptions: { stageName: stackStage },
     });
 
-    const apiEnvironment = {
-        ...environment,
-    };
-
-    const lambda_todosGetList = todosGetList(scope, stackName, stackStage, apiEnvironment);
+    const lambda_todosGetList = todosGetList(scope, stackName, stackStage, environment);
 
     const endpointTodos = api.root.addResource('todos');
     endpointTodos.addMethod('GET', new LambdaIntegration(lambda_todosGetList));
