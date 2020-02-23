@@ -3,14 +3,14 @@ const webpackNodeExternals = require('webpack-node-externals');
 
 module.exports = {
     mode: 'development',
-    devtool: 'none',
     target: 'node',
+    devtool: undefined,
     entry: {
         main: './source/main.ts',
     },
     output: {
         libraryTarget: 'commonjs',
-        filename: '[name].bundle.js',
+        filename: 'bundle.js',
         path: path.resolve('./build/main'),
     },
     externals: [webpackNodeExternals()],
