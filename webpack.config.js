@@ -15,12 +15,12 @@ module.exports = {
     },
     externals: [webpackNodeExternals()],
     resolve: {
-        extensions: ['.ts', '.tsx'],
+        extensions: ['.ts', '.tsx', '.js', '.jsx'],
     },
     module: {
         rules: [
             {
-                test: /\.(ts)x?$/,
+                test: /\.(ts|js)x?$/,
                 exclude: /node_modules/,
                 use: {
                     loader: 'babel-loader',

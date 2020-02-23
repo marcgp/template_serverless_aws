@@ -5,7 +5,7 @@ const todosWebAppHandler = (scope: Construct, stackName: string, stackStage: str
     const lambda = new Function(scope, 'todosWebAppHandler', {
         functionName: `${stackStage}-${stackName}-todosWebAppHandler`,
         runtime: Runtime.NODEJS_12_X,
-        handler: 'bundle.handler',
+        handler: 'server.handler',
         code: Code.fromAsset('./build/webapps/todos_webapp'),
         environment,
     });

@@ -1,5 +1,6 @@
 const path = require('path');
 const fs = require('fs-extra');
+const HtmlPlugin = require('html-webpack-plugin');
 const childProcess = require('child_process');
 const baseconfig = require('./webpack.config');
 
@@ -28,6 +29,7 @@ const todosWebAppServer = {
     output: {
         ...baseconfig.output,
         path: path.resolve('./build/webapps/todos_webapp'),
+        filename: 'server.js',
     },
     plugins: [
         {
@@ -36,4 +38,23 @@ const todosWebAppServer = {
     ],
 };
 
-module.exports = [todosWebAppServer];
+const todosWebAppPublic = {
+    ...baseconfig,
+    target: 'web',
+    entry: {
+        index: './source/webapps/todos_webapp/public/index.tsx',
+    },
+    externals: undefined,
+    output: {
+        ...baseconfig.output,
+        path: path.resolve('./build/webapps/todos_webapp'),
+        filename: 'bundle.js',
+    },
+    plugins: [
+        new HtmlPlugin({
+            template: './source/webapps/todos_webapp/public/index.html',
+        }),
+    ],
+};
+
+module.exports = [todosWebAppServer, todosWebAppPublic];
