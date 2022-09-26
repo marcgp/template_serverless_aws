@@ -43,7 +43,7 @@
         "@types/react-dom": "16.9.5",
         "@types/webpack-node-externals": "1.7.1",
         "@typescript-eslint/parser": "2.20.0",
-        "aws-cdk": "1.25.0",
+        "aws-cdk": "1.174.0",
         "babel-loader": "8.0.6",
         "eslint": "6.8.0",
         "eslint-config-prettier": "6.10.0",
